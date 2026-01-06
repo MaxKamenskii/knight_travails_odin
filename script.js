@@ -57,7 +57,7 @@ let find = function (square) {
     [square.current[0] - 2, square.current[1] - 1],
     square
   );
-  let eight = new Square(
+  let eighth = new Square(
     [square.current[0] - 2, square.current[1] + 1],
     square
   );
@@ -113,17 +113,17 @@ let find = function (square) {
     seventh.current[0] >= 0 &&
     seventh.current[0] < 8 &&
     seventh.current[1] >= 0 &&
-    seventh[1] < 8
+    seventh.current[1] < 8
   ) {
     allPossibleSquares.push(seventh);
   }
   if (
-    eight.current[0] >= 0 &&
-    eight.current[0] < 8 &&
-    eight.current[1] >= 0 &&
-    eight.current[1] < 8
+    eighth.current[0] >= 0 &&
+    eighth.current[0] < 8 &&
+    eighth.current[1] >= 0 &&
+    eighth.current[1] < 8
   ) {
-    allPossibleSquares.push(eight);
+    allPossibleSquares.push(eighth);
   }
   return allPossibleSquares;
 };
@@ -144,7 +144,7 @@ let explore = function (start, goal) {
     // check if one of the square is the goal
     for (possibleSquare of allPossibleSquares) {
       let key = possibleSquare.current.toString();
-      if (key == goal) {
+      if (key == goalKey) {
         // console.log("Found the goal");
         return possibleSquare;
       } else {
